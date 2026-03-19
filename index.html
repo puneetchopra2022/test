@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lyrics Animation</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    #lyrics {
+      font-size: 20px;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+<h2>💛 Lyrics 💛</h2>
+<div id="lyrics"></div>
+
+<script>
+  const lines = [
+    "Haye...",
+    "Haye...",
+    "Haye...",
+    "Mera yaar sajan tu dildaar sajan tu",
+    "Mainu kol luka le gal seenay la le",
+    "Ghar aaja mahi fer na ja mahi",
+    "Tere tarley pavaan tenu kinj samjhawan",
+    "Ik wari aaja ghar phera paja",
+    "Koi lab ke leya de mere dil da ranjha",
+    "Rabb teri khudaai main devaan duhai",
+    "Os be kadre nu meri qadar na aai",
+    "Haye..."
+  ];
+
+  let index = 0;
+  const container = document.getElementById("lyrics");
+
+  function showNextLine() {
+    if (index < lines.length) {
+      container.innerHTML += lines[index] + "\n";
+      index++;
+      setTimeout(showNextLine, 1000);
+    }
+  }
+
+  showNextLine();
+</script>
+
+</body>
+</html>
