@@ -2,27 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lyrics Animation</title>
+  <title>For Someone Special 💛</title>
+
   <style>
     body {
-      background: #111;
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #1a1a1a, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
       color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 50px;
+      overflow: hidden;
     }
 
-    #lyrics {
+    .container {
+      text-align: center;
+      max-width: 80%;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #ff4d6d;
+      text-shadow: 0 0 10px rgba(255, 77, 109, 0.7);
+    }
+
+    #line {
+      font-size: 22px;
+      min-height: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+      text-shadow: 0 0 8px rgba(255,255,255,0.3);
+    }
+
+    .show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* floating hearts */
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
       font-size: 20px;
-      line-height: 1.8;
-      white-space: pre-line;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<h2>💛 Lyrics 💛</h2>
-<div id="lyrics"></div>
+<div class="container">
+  <h1>💖 For You 💖</h1>
+  <div id="line"></div>
+</div>
+
+<!-- Optional music -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <script>
   const lines = [
@@ -41,17 +93,56 @@
   ];
 
   let index = 0;
-  const container = document.getElementById("lyrics");
+  const lineEl = document.getElementById("line");
 
-  function showNextLine() {
+  function typeLine(text, callback) {
+    let i = 0;
+    lineEl.innerHTML = "";
+    lineEl.classList.add("show");
+
+    function typing() {
+      if (i < text.length) {
+        lineEl.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 40);
+      } else {
+        setTimeout(() => {
+          lineEl.classList.remove("show");
+          setTimeout(callback, 800);
+        }, 1200);
+      }
+    }
+
+    typing();
+  }
+
+  function nextLine() {
     if (index < lines.length) {
-      container.innerHTML += lines[index] + "\n";
-      index++;
-      setTimeout(showNextLine, 1000);
+      typeLine(lines[index], () => {
+        index++;
+        nextLine();
+      });
     }
   }
 
-  showNextLine();
+  nextLine();
+
+  // floating hearts generator
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (10 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }
+
+  setInterval(createHeart, 500);
 </script>
 
 </body>
