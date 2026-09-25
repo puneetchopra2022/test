@@ -3,6 +3,6 @@
 ## hello
 
 
-'''bash
+```bash
 dshdjshdsd
 dsjdhjsdjs
