@@ -26,4 +26,4 @@ spec:
  ```
 
 
-(master/Screenshot%202026-09-25%20164040.gif)
+(images/Screenshot 2026-09-25 164040.gif)
