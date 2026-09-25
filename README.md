@@ -26,4 +26,4 @@ spec:
  ```
 
 
-![Kubernetes Demo](images/image.gif)
+![Kubernetes Demo](./images/image.gif)
