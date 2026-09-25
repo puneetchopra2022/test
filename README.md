@@ -2,7 +2,7 @@
 
 ## hello
 
-- ##kubectl get node## :  to get node 
+- **#kubectl get node** :  to get node 
 
 
 ```bash
