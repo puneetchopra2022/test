@@ -24,3 +24,6 @@ spec:
     - name: nginx
       image: nginx:latest
  ```
+
+
+(master/Screenshot%202026-09-25%20164040.gif)
