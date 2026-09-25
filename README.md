@@ -11,8 +11,8 @@ dsjdhjsdjs
 
 ```
 
-<details> 
-<summary>nodeselctor</summary>
+<details>
+<summary>NodeSelector</summary>
 
 ```yaml
 apiVersion: v1
@@ -23,7 +23,10 @@ spec:
   containers:
     - name: nginx
       image: nginx:latest
- ```
+```
 
+</details>
 
 ![Kubernetes Demo](./images/image.gif)
+
+
