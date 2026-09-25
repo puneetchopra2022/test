@@ -26,4 +26,4 @@ spec:
  ```
 
 
-(images/Screenshot 2026-09-25 164040.gif)
+![Kubernetes Demo](images/image.gif)
