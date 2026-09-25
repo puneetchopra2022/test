@@ -2,6 +2,8 @@
 
 ## hello
 
+- ##kubectl get node## :  to get node 
+
 
 ```bash
 dshdjshdsd
